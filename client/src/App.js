@@ -5,10 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 // API Configuration
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = process.env.REACT_APP_API_URL || '';
 
 const api = axios.create({
-  baseURL: API_BASE,
+  baseURL: `${API_BASE}/api`,
 });
 
 api.interceptors.request.use((config) => {
