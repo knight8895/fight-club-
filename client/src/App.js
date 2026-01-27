@@ -5,10 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 const API_BASE = 'https://fight-club-eny5.onrender.com';
-
 const api = axios.create({
-  baseURL: 'https://fight-club-eny5.onrender.com/api', // only one /api
+  baseURL: `${API_BASE}/api`, // ✅ correct, only one /api
 });
+
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('fc_token');
