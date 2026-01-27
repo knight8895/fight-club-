@@ -17,14 +17,7 @@ const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-this-in-production';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-// ===== TRUST PROXY =====
-app.set('trust proxy', 1); 
 
-app.use(cors({
-  origin: 'https://fight-club-blush.vercel.app', // replace with your actual frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
 
 // ==================== SECURITY UTILITIES ====================
 
@@ -148,6 +141,17 @@ async function initializeDatabase() {
 }
 
 initializeDatabase();
+
+
+
+// ===== TRUST PROXY =====
+app.set('trust proxy', 1); 
+
+app.use(cors({
+  origin: 'https://fight-club-blush.vercel.app', // replace with your actual frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
 // ==================== MIDDLEWARE ====================
 
