@@ -7,12 +7,7 @@ import axios from 'axios';
 const API_BASE = 'https://fight-club-eny5.onrender.com';
 
 const api = axios.create({
-  baseURL: `${API_BASE}/api`,  // only add /api once
-});
-
-
-const api = axios.create({
-  baseURL: `${API_BASE}/api`,
+  baseURL: 'https://fight-club-eny5.onrender.com/api', // only one /api
 });
 
 api.interceptors.request.use((config) => {
