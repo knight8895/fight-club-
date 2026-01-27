@@ -5,16 +5,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 const API_BASE = 'https://fight-club-eny5.onrender.com';
-const api = axios.create({
-  baseURL: `${API_BASE}/api`, // ✅ correct, only one /api
-});
 
+const api = axios.create({
+  baseURL: `${API_BASE}/api`, // full backend endpoint
+});
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('fc_token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+  if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
