@@ -4,8 +4,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
-// API Configuration
-const API_BASE = process.env.REACT_APP_API_URL || '';
+const API_BASE = 'https://fight-club-eny5.onrender.com';
+
+const api = axios.create({
+  baseURL: `${API_BASE}/api`,  // only add /api once
+});
+
 
 const api = axios.create({
   baseURL: `${API_BASE}/api`,
