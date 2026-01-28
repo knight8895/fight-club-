@@ -147,11 +147,6 @@ initializeDatabase();
 // ===== TRUST PROXY =====
 app.set('trust proxy', 1); 
 
-app.use(cors({
-  origin: 'https://fight-club-blush.vercel.app', // replace with your actual frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
 
 // ==================== MIDDLEWARE ====================
 
