@@ -4,12 +4,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
-const API_BASE = 'https://fight-club-eny5.onrender.com';
+// At the top of App.js (around line 7)
+const API_BASE = process.env.REACT_APP_API_URL || 'https://fight-club-eny5.onrender.com';
 
 const api = axios.create({
-  baseURL: `${API_BASE}/api`, // full backend endpoint
+  baseURL: `${API_BASE}/api`,
 });
-
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('fc_token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
